@@ -11,7 +11,7 @@
 	$plxShow->meta('author');
 ?>
 	<link rel="icon" href="<?php $plxShow->template(); ?>/img/favicon.png" />
-	<link rel="stylesheet" href="<?php $plxShow->template(); ?>/css/theme.css?v=12-22" media="screen"/>
+	<link rel="stylesheet" href="<?php $plxShow->template(); ?>/css/theme.css?v=11-12-22" media="screen"/>
 <?php
 	$plxShow->templateCss();
 	$plxShow->pluginsCss();
@@ -20,7 +20,7 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php $plxShow->lang('COMMENTS_RSS_FEEDS') ?>" href="<?php $plxShow->urlRewrite('feed.php?rss/commentaires') ?>" />
 </head>
 
-<body class="page mode-<?php $plxShow->mode(true) ?>">
+<body  class="page mode-<?php $plxShow->mode(true) ?>">
 	
 	<a href="#main" title="Content">Skip</a>
 	<h1><a href="<?php echo $plxShow->plxMotor->urlRewrite() ;?>" class="home"><img src="<?php $plxShow->template(); ?>/img/logo.png" alt="<?php $plxShow->mainTitle(); ?>" id="top"></a></h1>

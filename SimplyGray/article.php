@@ -1,13 +1,10 @@
 <?php include __DIR__.'/header.php'; ?>
 	<header id="header">
 	  <h2><?php $plxShow->artTitle(); ?></h2>  
-	   <?php $plxShow->artAuthorInfos('<div class="author-infos">#art_authorinfos</div>'); ?>
+	   <?php $plxShow->artAuthorInfos('<div class="author-infos">#art_authorinfos  <cite>#art_author</cite></div>'); ?>
 	</header>
 	<main id="main">
-
-		<div class="container">
 					<article class="article" id="post-<?php echo $plxShow->artId(); ?>">
-
 						<header>
 							<span class="art-date">
 								<time datetime="<?php $plxShow->artDate('#num_year(4)-#num_month-#num_day'); ?>">
@@ -46,5 +43,4 @@
 
 					<?php include __DIR__.'/commentaires.php'; ?>
 	</main>
-
 <?php include __DIR__.'/footer.php'; ?>
