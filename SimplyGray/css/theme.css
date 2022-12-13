@@ -2,10 +2,7 @@
 body {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 200px calc(100vh - 200px) repeat(
-      auto-fill,
-      minmax(0, auto)
-    );
+  grid-template-rows: 200px calc(100vh - 200px) auto auto auto auto auto;
   min-height: 100vh;
 }
 body,body>h1{
@@ -27,6 +24,22 @@ a[href="#main"]:before {
   top: 70vh;
   left: 173vw;
   font-size: 3rem;
+}
+a[href="#main"]::before {
+  animation: tease 10s infinite alternate linear;
+  display: inline-block
+}
+@keyframes tease {
+  5%,14%,53% {
+    text-shadow:0 0 5px;
+    translate:0 0.4em;
+  }
+  7%,20%,40%,60% {
+    text-shadow:0 0 0px;
+    translate:0 -.3em;
+    rotate: 3600deg;
+  }
+
 }
 #nav,
 #header,
@@ -137,6 +150,16 @@ ul {
   margin: 0;
   padding-inline-start: 1em;
 }
+ form input {
+  font-size: 1.25em;
+  position: relative;
+  z-index: 10;
+}
+ form {
+  padding-inline: 2rem;
+  font-size:0.75em;
+}
+
 /* text,color,etc */
 html,
 body {
@@ -155,6 +178,11 @@ time {
   color: inherit;
   text-transform: uppercase;
 }
+.written-by,
+#footer a.maintitle,
+cite {
+    color:orange;
+}
 #reseaux {
   font-size: 14px;
   display: grid;
@@ -162,6 +190,9 @@ time {
 }
 #reseaux a {
   text-transform: lowercase;
+}
+.page.mode-article article {
+  margin-bottom: 10rem;
 }
 body * h1,
 h2,
@@ -181,6 +212,24 @@ a:hover,
 #nav a:hover,
 #posts li:hover > * {
   color: #018af8;
+}
+
+#header small {
+  font-size: 0.5em;
+}
+.btop {
+  border-top: dotted 1px lightgray;
+}
+
+.preInfosXml {
+  display: inline;
+}
+
+.ovfwhid {
+  overflow:hidden;
+  min-width:100%;
+  padding-block:1rem;
+  line-height:1.6rem;
 }
 #posts time {
   text-align-last: justify;
@@ -219,7 +268,7 @@ body {
 #footer a[href$="#top"],
 #tags {
   transform: scale(3);
-  margin-inline-end: auto;
+  margin-inline: auto;
   transform-origin: center left;
 }
 .lastcom-list {
@@ -239,9 +288,12 @@ body {
   grid-column: auto/span 2;
   margin: auto;
 }
+
 form fieldset {
+  grid-column: 1/-1;
+
   display: grid;
-  grid-template-columns: minmax(30vw,max-content) minmax(50vw,1fr);
+  grid-template-columns: 1fr 2fr;
   gap: 0.5em;
 }
 .fullwidth {

@@ -4,7 +4,7 @@
     <!--<p><?php $plxShow->subTitle(); ?></p>-->
   
    <?php // on prend les infos de l'administrateur du site
-		$formate = '<div class="infos"> <small>#art_authorinfos <cite>#art_author</cite></small></div>';
+		$formate = '<div class="infos"> <small>	&ndash;<cite>#art_author</cite>: #art_authorinfos </small></div>';
         $info = $plxShow->plxMotor->aUsers;
         if (trim($info['001']['infos']) != '') {
             $text = str_replace('#art_authorinfos', $info['001']['infos'], $formate);

@@ -11,7 +11,7 @@
 	$plxShow->meta('author');
 ?>
 	<link rel="icon" href="<?php $plxShow->template(); ?>/img/favicon.png" />
-	<link rel="stylesheet" href="<?php $plxShow->template(); ?>/css/theme.css?v=11-12-22" media="screen"/>
+	<link rel="stylesheet" href="<?php $plxShow->template(); ?>/css/theme.css?v=10-12-2022" media="screen"/>
 <?php
 	$plxShow->templateCss();
 	$plxShow->pluginsCss();
