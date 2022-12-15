@@ -1,12 +1,29 @@
-  /* layout */
+/* colors and bg var() */
+:root {
+  --bodyFontSize:                       clamp(12px, 1.25vw, 20px);
+  --headerFontSize:                     clamp(12px, 1.75vw, 25px);
+  --txtColor:                           gray;
+  --citeColor:                          orange;
+  --gray01:                             rgba(0,0,0,0.1);
+  --gray03:                             rgba(0,0,0,0.3);
+  --lightgray:                          lightgray;
+  --avisted:                            violet ; 
+  --blueA:                              #018af8;/* nav a visited*/
+  --mainAh2Clr:                         #83beec;
+  --bgPag:                              whitesmoke;
+}
+
+
+
+/* layout */
 body {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 200px calc(100vh - 200px) auto auto auto auto auto;
+  grid-template-rows: 200px calc(90vh - 200px) 15vh auto auto auto auto ;
   min-height: 100vh;
 }
 body,body>h1{
-    margin:0;
+    margin:auto;
 }
 #top {
   grid-column: 1;
@@ -31,13 +48,11 @@ a[href="#main"]::before {
 }
 @keyframes tease {
   5%,14%,53% {
-    text-shadow:0 0 5px;
-    translate:0 0.4em;
+    translate:0 0.2em;
   }
   7%,20%,40%,60% {
-    text-shadow:0 0 0px;
+    text-shadow:0 0 0;
     translate:0 -.3em;
-    rotate: 3600deg;
   }
 
 }
@@ -48,7 +63,10 @@ a[href="#main"]::before {
 }
 #header {
   margin-block: auto;
-  font-size: clamp(10px, 3vw, 30px);
+  font-size:var(--headerFontSize);
+}
+#main {
+  grid-row: 4;
 }
 #footer,
 #footer #snippets {
@@ -62,6 +80,7 @@ a[href="#main"]::before {
   gap: 4rem 1rem;
   padding: 5rem;
   margin-top: 5rem;
+  grid-row: 5;
 }
 #footer #snippets {
   column-width: 11em;
@@ -76,11 +95,11 @@ a[href="#main"]::before {
   grid-row: 1;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em 3em;
+  gap: 0.3em 3em;
   flex-wrap: wrap;
   align-items: center;
   padding: 1em;
-  margin-bottom: auto;
+  margin-block: auto;
 }
 #posts {
   display: grid;
@@ -99,7 +118,7 @@ a[href="#main"]::before {
 .art_thumbnail {
   float: inline-start;
   margin-inline-end: 1em;
-  border:1px solid rgba(0,0,0,0.3)
+  border:1px solid var(--gray03);
 }
 article {
   border-top: dotted 1px;
@@ -123,14 +142,14 @@ p.more {
 	padding-inline-end: 1em;
 }
 #main article h2 ~ * a:not(:hover) {
-  color: #83beec;
+  color: var(--mainAh2Clr);
 }
 .pagination.text-center {
   justify-content: center;
   display: flex;
   gap: 0.5em;
   margin-block: 1em;
-  background: whitesmoke;
+  background: var(--bgPag);
 }
 .repertory.menu.breadcrumb {
   display: flex;
@@ -165,10 +184,10 @@ html,
 body {
   font-family: "san serif";
   font-weight: bold;
-  color: gray;
+  color: var(--txtColor);
   line-height: 1.6;
   scroll-behavior: smooth;
-  font-size: clamp(12px, 1.5vw, 25px);
+  font-size: var(--bodyFontSize);
 }
 a,
 #nav a,
@@ -181,12 +200,15 @@ time {
 .written-by,
 #footer a.maintitle,
 cite {
-    color:orange;
+    color:var(--citeColor);
 }
 #reseaux {
   font-size: 14px;
   display: grid;
-  margin-bottom: auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--citeColor);
+  margin: auto;
 }
 #reseaux a {
   text-transform: lowercase;
@@ -202,23 +224,23 @@ h5,
 h6 {
   text-transform: uppercase;
   margin-bottom: 0.2rem;
-  border-bottom: dotted 1px rgba(0, 0, 0, 0.1);
+  border-bottom: dotted 1px var(--gray01);
 }
-#nav a:visited,
 a:visited {
-  color: darkgray;
-}
+   color: var(--avisted); 
+   }
+#nav a:visited,
 a:hover,
 #nav a:hover,
 #posts li:hover > * {
-  color: #018af8;
+  color: var(--blueA);
 }
 
 #header small {
   font-size: 0.5em;
 }
 .btop {
-  border-top: dotted 1px lightgray;
+  border-top: dotted 1px var(--lightgray);
 }
 
 .preInfosXml {
@@ -236,7 +258,7 @@ a:hover,
 }
 #footer,
 body {
-  box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 0 3rem var(--gray03);
 }
 #footer form {
   display: contents;
@@ -291,7 +313,6 @@ body {
 
 form fieldset {
   grid-column: 1/-1;
-
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 0.5em;
@@ -325,7 +346,7 @@ figcaption button {
 }
 #nav li.menu:hover .sub-menu {
   display: grid;
-  background: whitesmoke;
+  background: var(--bgPag);
   z-index: 1;
   padding-inline-end:1em;
   }
@@ -336,6 +357,7 @@ figcaption button {
 @media screen and (max-width: 700px) {
   body {
     grid-template-columns: auto 1fr;
+    padding: 0 1rem;
   }
   #header,
   #main,
@@ -347,6 +369,8 @@ figcaption button {
     order: 1;
     display: flex;
     justify-content: space-around;
+    grid-row: 6;
+    margin: 1rem 0;
   }
   #footer {
     max-width: 100%;
