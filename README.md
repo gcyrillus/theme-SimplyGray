@@ -2,6 +2,9 @@
 thème pour PluXml
 
 Thème dans les tons gris plutôt dédié à du blog avec 2 ou 3 pages statiques.
+Pied de page d'accueil allégé.
+
+Quelques couleurs sont définies via des variables `var()`en debut de feuille de styles.
 
 <table><tr><td><img src="https://github.com/gcyrillus/theme-SimplyGray/blob/main/SimplyGray/preview.png?raw=true"></td><td>Editez le fichier header.php pour effacer, mettre à jour les liens "reseaux" ou y incorporer d'autres contenus.<pre><code>&lt;aside id="reseaux">
 &lt;!-- liens réseaux -->
